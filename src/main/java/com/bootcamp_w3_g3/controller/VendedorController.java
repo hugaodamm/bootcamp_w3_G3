@@ -1,8 +1,14 @@
 package com.bootcamp_w3_g3.controller;
 
+import com.bootcamp_w3_g3.model.dtos.request.CarrinhoForm;
+import com.bootcamp_w3_g3.model.dtos.request.VendaForm;
 import com.bootcamp_w3_g3.model.dtos.request.VendedorForm;
+import com.bootcamp_w3_g3.model.dtos.response.VendaDTO;
 import com.bootcamp_w3_g3.model.dtos.response.VendedorDTO;
+import com.bootcamp_w3_g3.model.entity.Venda;
 import com.bootcamp_w3_g3.model.entity.Vendedor;
+import com.bootcamp_w3_g3.service.ProdutoService;
+import com.bootcamp_w3_g3.service.VendaService;
 import com.bootcamp_w3_g3.service.VendedorService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,6 +31,10 @@ public class VendedorController {
 
     @Autowired
     VendedorService vendedorService;
+    @Autowired
+    VendaService vendaService;
+    @Autowired
+    ProdutoService produtoService;
 
     @PostMapping("/salvar")
     @ApiOperation("Criar um novo vendedor.")
@@ -57,4 +67,22 @@ public class VendedorController {
         return new ResponseEntity<>(VendedorDTO.converter(vendedor), HttpStatus.OK);
     }
 
+//    @GetMapping("/listar/{codigoVendedor}/{lista}")
+//    @ApiOperation("Exibir a lista dos melhores vendedores com maior venda.")
+//    public ResponseEntity<List<Vendedor>> listarVendedores(@PathVariable String codigoVendedor){
+////        List<Vendedor> listaVendedores = vendedorService.registrarVendas(codigoVendedor);
+////        return new ResponseEntity<>(VendedorDTO.converter(listaVendedores),HttpStatus.OK);
+//    }
+
+    @PostMapping("/venda/registrar")
+    public ResponseEntity<?> registrarVenda(@RequestBody VendaForm vendaForm) {
+        Venda venda = vendaService.registrar(vendaForm.converte(vendedorService, produtoService));
+        return new ResponseEntity<>(VendaDTO.converter(venda), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/vendas/relatorio")
+    public ResponseEntity<List<VendedorDTO>> relatorioVendas(){
+        List<Vendedor> vendedorDTOS = vendaService.relatorioDeVendas();
+        return new ResponseEntity<>(VendedorDTO.converteLista(vendedorDTOS), HttpStatus.OK);
+    }
 }

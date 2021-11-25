@@ -1,14 +1,18 @@
 package com.bootcamp_w3_g3.service;
 
 import com.bootcamp_w3_g3.advisor.EntityNotFoundException;
+import com.bootcamp_w3_g3.model.entity.Carrinho;
+import com.bootcamp_w3_g3.model.entity.Itens;
 import com.bootcamp_w3_g3.model.entity.Vendedor;
+import com.bootcamp_w3_g3.repository.CarrinhoRepository;
+import com.bootcamp_w3_g3.repository.ItensRepository;
 import com.bootcamp_w3_g3.repository.VendedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author Marcelo de Oliveira Santos
@@ -20,7 +24,8 @@ public class VendedorService {
 
 
     private VendedorRepository vendedorRepository;
-
+    private CarrinhoRepository carrinhoRepository;
+    private ItensRepository itensRepository;
     @Autowired
     public VendedorService(VendedorRepository vendedorRepository) {
         this.vendedorRepository = vendedorRepository;
@@ -78,14 +83,41 @@ public class VendedorService {
                  editedVendedor.setTelefone(vendedor.getTelefone());
                  editedVendedor.setEndereco(vendedor.getEndereco());
                  editedVendedor.setCpf(vendedor.getCpf());
+                 editedVendedor.setTotalVendas(vendedor.getTotalVendas());
              }
 
         return vendedorRepository.save(editedVendedor);
     }
 
-
-
-
-
+    /**
+     * Requisito 6 - lista de ranking dos vendedores
+     * @author Hugo Damm
+     */
+//    public BigDecimal registrarVendas(Vendedor vendedor) {
+//        for (Itens itens : vendedor.getListaDeVendas()){
+//
+//            switch (itens.getStatusCompra()){
+//                case PENDENTE:
+//                    return retornaItensPreco(itens);
+//
+//                case CANCELADO:
+//                    return new BigDecimal("00.0");
+//
+//                case CONCLUIDO:
+//                    Vendedor vendedorSalvo = vendedorRepository.save(itens);
+//                    return retornaItensPreco(vendedorSalvo);
+//            }
+//        }
+//        return null;
+//    }
+//
+//
+//    public BigDecimal retornaItensPreco(Itens itens) {
+//        double valorTotal = 0.00;
+//        for (Itens item : itens.getProduto()) {
+//            valorTotal += item.getProduto().getPreco() * item.getQuantidade();
+//        }
+//        return new BigDecimal(valorTotal);
+//    }
 
 }

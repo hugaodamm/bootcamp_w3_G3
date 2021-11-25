@@ -2,10 +2,9 @@ package com.bootcamp_w3_g3.model.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author hugo damm
@@ -29,7 +28,10 @@ public class Vendedor {
     private String telefone;
     private String endereco;
     private String codigo;
+    private Double totalVendas = 00.0;
 
+//    @OneToMany
+//    private List<Itens> listaDeVendas = new ArrayList<>();
 
 
     public Vendedor(String nome, String sobrenome, String cpf, String telefone, String endereco) {

@@ -28,5 +28,6 @@ public class Produto {
     private TipoProduto tipoProduto;
     private Integer codLote;
 
+//    private String codigoVendedor; //
 
 }

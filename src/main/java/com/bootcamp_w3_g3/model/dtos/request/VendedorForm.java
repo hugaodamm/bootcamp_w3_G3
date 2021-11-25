@@ -20,6 +20,7 @@ public class VendedorForm {
     private String cpf;
     private String telefone;
     private String endereco;
+    private Double totalVendas = 00.0;
 
     public Vendedor converte(){
         return Vendedor.builder()
@@ -29,6 +30,7 @@ public class VendedorForm {
                 .cpf(this.cpf)
                 .telefone(this.telefone)
                 .endereco(this.endereco)
+                .totalVendas(this.totalVendas)
                 .build();
 
     }

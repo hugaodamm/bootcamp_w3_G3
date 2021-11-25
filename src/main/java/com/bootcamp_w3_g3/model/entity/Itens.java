@@ -23,6 +23,7 @@ public class Itens {
     @OneToOne
     private Produto produto;
     private Integer quantidade;
+//    private StatusCompra statusCompra; //
 
     public Itens(Produto produto, Integer quantidade) {
         this.produto = produto;
