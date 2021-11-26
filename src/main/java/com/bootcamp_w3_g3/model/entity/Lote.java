@@ -1,6 +1,7 @@
 package com.bootcamp_w3_g3.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Builder
 @Entity
+@ApiModel(description = "Classe representando o Lote rastreado pelo aplicativo.")
 public class Lote {
 
     @Id

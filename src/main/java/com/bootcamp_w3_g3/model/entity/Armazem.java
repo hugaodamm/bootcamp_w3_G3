@@ -1,6 +1,7 @@
 package com.bootcamp_w3_g3.model.entity;
 
 
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,6 +22,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
+@ApiModel(description = "Classe representando a Armazém rastreado pelo aplicativo.")
 public class Armazem {
 
     @Id

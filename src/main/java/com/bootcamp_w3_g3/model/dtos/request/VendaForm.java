@@ -24,19 +24,15 @@ public class VendaForm {
 
 
     public Venda converte(VendedorService vendedorService, ProdutoService produtoService) {
-        // aqui ele foi verificar se o vendedor realmente existe
+
         Vendedor vendedor = vendedorService.obter(this.codigoVendedor);
 
-        //aqui ele vai percorrer a lista de produtos, para ver se ele existe no setor do armazem
         List<Produto> produtosDaVenda = new ArrayList<>();
         for (CodigoProduto codProduto : codigosProdutos) {
-            //aqui vai buscar cada produto a partir do codigo recebido e adicionar na lista
             Produto produto = produtoService.obter(codProduto.getCodigo());
             produtosDaVenda.add(produto);
         }
 
-        // nao coloquei o valor total como atributo aqui, porque ele esta sendo contabilizado na service, no momento
-        // da persistencia.
         return Venda.builder()
                 .vendedor(vendedor).produtos(produtosDaVenda).build();
     }

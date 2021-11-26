@@ -1,5 +1,6 @@
 package com.bootcamp_w3_g3.model.entity;
 
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ApiModel(description = "Classe representando a Ordem de Entrada rastreado pelo aplicativo.")
 public class OrdemDeEntrada {
 
     @Id

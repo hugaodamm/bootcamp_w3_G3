@@ -1,5 +1,6 @@
 package com.bootcamp_w3_g3.model.entity;
 
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
+@ApiModel(description = "Classe representando a Venda rastreado pelo aplicativo.")
 public class Venda {
 
     @Id

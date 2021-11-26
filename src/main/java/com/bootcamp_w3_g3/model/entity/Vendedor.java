@@ -1,5 +1,6 @@
 package com.bootcamp_w3_g3.model.entity;
 
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
+@ApiModel(description = "Classe representando o Vendedor rastreado pelo aplicativo.")
 public class Vendedor {
 
     @Id
@@ -29,9 +31,6 @@ public class Vendedor {
     private String endereco;
     private String codigo;
     private Double totalVendas = 00.0;
-
-//    @OneToMany
-//    private List<Itens> listaDeVendas = new ArrayList<>();
 
 
     public Vendedor(String nome, String sobrenome, String cpf, String telefone, String endereco) {

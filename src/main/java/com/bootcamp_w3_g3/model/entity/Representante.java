@@ -22,15 +22,13 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(description = "Class representing a representante tracked by the application.")
+@ApiModel(description = "Classe representando o Representante rastreado pelo aplicativo.")
 public class Representante {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ApiModelProperty(notes = "Unique identifier of the person. No two persons can have the same id.", example = "1", required = true, position = 0)
     private Long id;
     private String codigo;
-    @ApiModelProperty(notes = "First name of the person.", example = "John", required = true, position = 1)
     private String nome;
     private String sobrenome;
     private String cpf;

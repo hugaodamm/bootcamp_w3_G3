@@ -1,6 +1,7 @@
 package com.bootcamp_w3_g3.model.entity;
 
 
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -19,7 +20,7 @@ import javax.persistence.Id;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-
+@ApiModel(description = "Classe representando o Comprador rastreado pelo aplicativo.")
 public class Comprador {
 
     @Id

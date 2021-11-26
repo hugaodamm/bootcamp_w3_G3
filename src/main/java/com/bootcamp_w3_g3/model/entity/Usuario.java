@@ -1,5 +1,6 @@
 package com.bootcamp_w3_g3.model.entity;
 
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +20,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @Entity
 @Builder
+@ApiModel(description = "Classe representando o Usuário rastreado pelo aplicativo.")
 public class Usuario implements UserDetails {
     @Id
     private String login;

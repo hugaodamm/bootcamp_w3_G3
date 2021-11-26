@@ -67,13 +67,11 @@ public class VendedorController {
         return new ResponseEntity<>(VendedorDTO.converter(vendedor), HttpStatus.OK);
     }
 
-//    @GetMapping("/listar/{codigoVendedor}/{lista}")
-//    @ApiOperation("Exibir a lista dos melhores vendedores com maior venda.")
-//    public ResponseEntity<List<Vendedor>> listarVendedores(@PathVariable String codigoVendedor){
-////        List<Vendedor> listaVendedores = vendedorService.registrarVendas(codigoVendedor);
-////        return new ResponseEntity<>(VendedorDTO.converter(listaVendedores),HttpStatus.OK);
-//    }
 
+    /**
+     * Requisito 6
+     * @author Hugo Damm
+     */
     @PostMapping("/venda/registrar")
     public ResponseEntity<?> registrarVenda(@RequestBody VendaForm vendaForm) {
         Venda venda = vendaService.registrar(vendaForm.converte(vendedorService, produtoService));

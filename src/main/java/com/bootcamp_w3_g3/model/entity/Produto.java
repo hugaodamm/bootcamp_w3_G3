@@ -1,5 +1,6 @@
 package com.bootcamp_w3_g3.model.entity;
 
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ApiModel(description = "Classe representando o Produto rastreado pelo aplicativo.")
 public class Produto {
 
     @Id
@@ -28,6 +30,5 @@ public class Produto {
     private TipoProduto tipoProduto;
     private Integer codLote;
 
-//    private String codigoVendedor; //
 
 }

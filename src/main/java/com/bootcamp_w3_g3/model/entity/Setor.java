@@ -1,6 +1,7 @@
 package com.bootcamp_w3_g3.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 
@@ -16,6 +17,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Builder
+@ApiModel(description = "Classe representando o Setor rastreado pelo aplicativo.")
 public class Setor {
 
     @Id
